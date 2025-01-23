@@ -51,7 +51,7 @@ Follow these steps to install and run the project locally:
 
 3. **Navigate to the project folder**  
    ```bash  
-   cd tres-en-raya  
+   cd tic-tac-toe  
    ```  
 
 4. **Install dependencies**  
