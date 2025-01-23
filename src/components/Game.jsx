@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import Board from './Board';
 
 const Game = () => {
-  const [board, setBoard] = useState(Array(9).fill(null)); // Estado del tablero
-  const [turn, setTurn] = useState('X'); // Turno actual
-  const [winner, setWinner] = useState(null); // Ganador
+  const [board, setBoard] = useState(Array(9).fill(null)); 
+  const [turn, setTurn] = useState('X'); 
+  const [winner, setWinner] = useState(null); 
 
-  // Combinaciones ganadoras
+
   const winningCombinations = [
-    [0, 1, 2], // Fila superior
-    [3, 4, 5], // Fila central
-    [6, 7, 8], // Fila inferior
-    [0, 3, 6], // Columna izquierda
-    [1, 4, 7], // Columna central
-    [2, 5, 8], // Columna derecha
-    [0, 4, 8], // Diagonal principal
-    [2, 4, 6], // Diagonal inversa
+    [0, 1, 2], 
+    [3, 4, 5], 
+    [6, 7, 8], 
+    [0, 3, 6], 
+    [1, 4, 7], 
+    [2, 5, 8], 
+    [0, 4, 8], 
+    [2, 4, 6], 
   ];
 
-  // Verificar si hay un ganador
+  
   const checkWinner = (board) => {
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
@@ -29,9 +29,9 @@ const Game = () => {
     return null;
   };
 
-  // Manejar clic en una casilla
+  
   const handleSquareClick = (index) => {
-    if (board[index] || winner) return; // Ignorar si ya hay un ganador o la casilla está ocupada
+    if (board[index] || winner) return; 
 
     const newBoard = [...board];
     newBoard[index] = turn;
@@ -41,18 +41,18 @@ const Game = () => {
     if (gameWinner) {
       setWinner(gameWinner);
     } else if (!newBoard.includes(null)) {
-      setWinner('Empate'); // Empate si no quedan casillas vacías
+      setWinner('Empate'); 
     } else {
       toggleTurn();
     }
   };
 
-  // Cambiar el turno
+
   const toggleTurn = () => {
     setTurn((prevTurn) => (prevTurn === 'X' ? 'O' : 'X'));
   };
 
-  // Reiniciar el juego
+
   const resetGame = () => {
     setBoard(Array(9).fill(null));
     setTurn('X');
