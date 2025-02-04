@@ -45,7 +45,7 @@ Follow these steps to install and run the project locally:
 2. **Clone the repository**  
    Clone the project repository to your local machine:  
    ```bash  
-   git clone <[repository-url](https://github.com/LozzDev/tic-tac-toe.git)>  
+   git clone <https://github.com/LozzDev/tic-tac-toe.git>  
    ```  
    
 
