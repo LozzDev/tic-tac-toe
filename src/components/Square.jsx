@@ -8,7 +8,7 @@ const Square = ({ toggleTurn, turn, index, value }) => {
       id={index}
       onClick={() => toggleTurn(index)}
     >
-      {value}
+      <img src={value} alt={value} />
     </button>
   );
 };

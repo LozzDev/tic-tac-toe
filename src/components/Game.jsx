@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Board from './Board';
-
+import X from '../assets/X.png';
+import O from '../assets/O.png';
+import './Game.css';
 const Game = () => {
   const [board, setBoard] = useState(Array(9).fill(null)); 
-  const [turn, setTurn] = useState('X'); 
+  const [turn, setTurn] = useState(X);
+  
   const [winner, setWinner] = useState(null); 
 
 
@@ -49,21 +52,23 @@ const Game = () => {
 
 
   const toggleTurn = () => {
-    setTurn((prevTurn) => (prevTurn === 'X' ? 'O' : 'X'));
+    setTurn((prevTurn) => (prevTurn === X ? O : X));
   };
+
+  
 
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
-    setTurn('X');
+    setTurn(X);
     setWinner(null);
   };
 
   return (
-    <div>
-      <h1>{winner ? (winner === 'Empate' ? '¡Empate!' : `¡Ganó ${winner}!`) : `Turno de ${turn}`}</h1>
+    <div className='game'>
+      <h1>{winner ? (winner === 'Empate' ? '¡Empate!' : `¡Ganó ${winner.substring(12,13)}!`) : `Turno de ${turn.substring(12,13)}`}</h1>
       <Board board={board} toggleTurn={handleSquareClick} turn={turn} />
-      <button onClick={resetGame}>Reiniciar Juego</button>
+      <button onClick={resetGame} className='reset-button'>Reiniciar Juego</button>
     </div>
   );
 };
